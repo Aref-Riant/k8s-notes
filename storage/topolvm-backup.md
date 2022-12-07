@@ -19,6 +19,7 @@ PV name is:
 pvc-4a7e1471-65a8-4e1a-97d2-54b7c58cbcbf  
 we will need it later  
 
+# Backup  
 first of all, i stop the pod by scaling down the STS controlling the pod:  
 ```
 kubectl scale sts postgres --replicas=0
@@ -66,7 +67,7 @@ lsblk | grep pvc-4a7e1471-65a8-4e1a-97d2-54b7c58cbcbf
 
 ```  
 
-/var/lib/kubelet/pods/077c38ac-f656-44ec-888b-3a5ba52173ae/volumes/kubernetes.io~csi/pvc-4a7e1471-65a8-4e1a-97d2-54b7c58cbcbf/mount  :
+/var/lib/kubelet/pods/077c38ac-f656-44ec-888b-3a5ba52173ae/volumes/kubernetes.io~csi/pvc-4a7e1471-65a8-4e1a-97d2-54b7c58cbcbf/mount  :  
 this is the path we need to backup:
 
 ```
@@ -113,7 +114,7 @@ spec:
 then i create the reserve pod again:  
 ```
 k create -f pvc-reserve-pod.yaml
-``
+```
 
 you need to find again where the pvc is mounted, then use rsync:
 ```
