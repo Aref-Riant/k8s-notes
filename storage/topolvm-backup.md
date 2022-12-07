@@ -55,7 +55,7 @@ now i need to find on which node is my pod placed:
 ```
 k get po -o wide
 NAME                                                           READY   STATUS      RESTARTS       AGE   IP               NODE                        NOMINATED NODE   READINESS GATES
-postgres-0                                                     1/1     Running     0              18m   10.10.10.4   k8s-w4   <none>           <none>
+pvc-reserve                                                     1/1     Running     0              18m   10.10.10.4   k8s-w4   <none>           <none>
 ```
 
 well, k8s-w4 it is  
