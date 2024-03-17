@@ -1,0 +1,1 @@
+kubectl exec etcd-mep-clp1m1 -n kube-system -- sh -c "ETCDCTL_API=3 etcdctl check perf --dial-timeout=20s --cert=/etc/kubernetes/pki/etcd/server.crt --key=/etc/kubernetes/pki/etcd/server.key --endpoints=127.0.0.1:2379 --insecure-skip-tls-verify=true"
